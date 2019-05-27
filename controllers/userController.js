@@ -61,6 +61,7 @@ exports.findImage = (req, res) =>{
 
             }).on("error", (err) => {
             console.log("Error: " + err.message);
+            res.send(new Response(400, "An error is happen", {}));
             });
         }else{ // if does exist, just conver to base64 and send from fileSystem..
             
@@ -104,7 +105,8 @@ exports.cronUsers = (data) => {
                 });
             });
             }).on("error", (err) => {
-            console.log("Error: " + err.message);
+                console.log("Error: " + err.message);
+                res.send(new Response(400, "An error is happen", {}));
             });
     });    
 }
